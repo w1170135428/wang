@@ -9,54 +9,54 @@ import dao.busDAOImp;
 import domain.bus;
 
 public class busAction extends ActionSupport {
-	List<String[]> stus;
-  private List<bus> stusByObj;
+	List<String[]> buss;
+  private List<bus> bussByObj;
 
-	public List<String[]> getStus() {
-		return stus;
+	public List<String[]> getbuss() {
+		return buss;
 	}
 
-	public List<bus> getStusByObj() {
-    return stusByObj;
+	public List<bus> getbusByObj() {
+    return bussByObj;
   }
-	bus stu;
+	bus bus;
 
-  public bus getStu() {
-    return stu;
+  public bus getbus() {
+    return bus;
   }
 
-  public void setStu(bus stu) {
-    this.stu = stu;
+  public void setbus(bus bus) {
+    this.bus = bus;
   }
 
   public String execute() throws Exception {
 		busDAO dao = new busDAOImp();
-		stus = dao.getAllStus();
-		getAllStusByObj();
+		buss = dao.getAllbuss();
+		getAllbussByObj();
 		return SUCCESS;
 	}
-	public void getAllStusByObj()throws Exception {
+	public void getAllbussByObj()throws Exception {
 	  busDAO dao=new busDAOImp();
-	  stusByObj=dao.getAllStusByObj();	  
+	  bussByObj=dao.getAllbussByObj();	  
 	}
 	public String save() throws Exception{
 	  busDAO dao=new busDAOImp();
-	  boolean isSuc=dao.save(stu);
+	  boolean isSuc=dao.save(bus);
 	  return isSuc?SUCCESS:ERROR;
 	}
 	public String edit() throws Exception{
     busDAO dao=new busDAOImp();
-    stu=dao.findById(stu.getId());
+    bus=dao.findById(bus.getId());
     return SUCCESS;
   }
 	public String update() throws Exception{
     busDAO dao=new busDAOImp();
-    boolean isSuc=dao.update(stu);
+    boolean isSuc=dao.update(bus);
     return isSuc?SUCCESS:ERROR;
   }
 	public String del() throws Exception{
     busDAO dao=new busDAOImp();
-    boolean isSuc=dao.delById(stu.getId());
+    boolean isSuc=dao.delById(bus.getId());
     return isSuc?SUCCESS:ERROR;
   }
 }
