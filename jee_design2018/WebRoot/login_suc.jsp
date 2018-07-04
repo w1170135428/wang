@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'login_suc.jsp' starting page</title>
+    <title>用户界面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,8 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
 登陆成功，欢迎使用汽车购票系统<br>
-<s:radio label="出发城市" list="{'北京','上海','广州'}"><br>
-<s:radio label="到达城市" list="{'北京','上海','广州'}"><br>
-</s:radio>
+<s:select list name="" label="出发城市" headerValue="--请选择--"headerKey="1"list=""></s:select>
+<br>
+<s:select list name="" label="到达城市" headerValue="--请选择--"headerKey="1"list=""></s:select>
+<br>
+
+
+
+
+<s:a href=".jsp">查询我的订单</s:a>
   </body>
 </html>
