@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		String pass = "";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, user, pass);
-		String sql = "select * from stu where username = '" + username + "'";
+		String sql = "select * from user where username = '" + username + "'";
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		boolean isHave=rs.next();
