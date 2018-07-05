@@ -6,7 +6,6 @@
 <s:head/>
 <sj:head/>
 </head>
-<s:debug/>
 <s:actionerror/>
 <s:form name="validatonForm">
    <sj:datepicker value="today" id="date" name="date" key="date" displayFormat="%{getText('format.date.input')}"

@@ -1,28 +1,27 @@
 package controller;
-
 import java.util.Map;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
 import dao.*;
 
-public class checkLogin extends ActionSupport {
+public class CheckLogin extends ActionSupport {
    String pass;
    String username;
-   public void setPass(String _pass){
-	   this.pass=_pass;
-	   System.out.println(this.pass);
-   }
-   public String getPass(){return this.pass;}
-	
-	public void setUsername(String username) {
-		this.username = username;
-		System.out.println(this.username);
-	}
-	public String getUsername() {
-		return username;
-	}
+	public String getPass() {
+	return pass;
+}
+public void setPass(String pass) {
+	this.pass = pass;
+}
+public String getUsername() {
+	return username;
+}
+public void setUsername(String username) {
+	this.username = username;
+}
+
+
+
 	@Override public void validate(){
 		if(username.isEmpty()){
 			addFieldError("username","没有输入用户名");			
@@ -43,7 +42,7 @@ public class checkLogin extends ActionSupport {
 			 return "fail";
 	}
 	 public String checkInDb()throws Exception{
-		 busDAO dao=new busDAOImp();
+		 BusDAO dao=new BusDAOImp();
 		 boolean isHave=dao.check(username);
 		 if(isHave){
 		   Map session=ActionContext.getContext().getSession();
@@ -52,4 +51,5 @@ public class checkLogin extends ActionSupport {
 		 }else
 			 return "fail";
 	}
+	 
 }

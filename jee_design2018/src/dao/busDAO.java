@@ -2,14 +2,11 @@ package dao;
 
 import java.util.List;
 
-import domain.bus;
+import domain.Bus;
 
-public interface busDAO {
+public interface BusDAO {
    boolean check(String username) throws Exception;
-   List<String[]> getAllbuss() throws Exception;
-   List<bus> getAllbussByObj() throws Exception;
-    bus findById(long id) throws Exception;
-   boolean save(bus bus) throws Exception;
-   boolean delById(long id) throws Exception;
-   boolean update(bus bus) throws Exception;
+List<String[]> getAllBus() throws Exception;
+List<Bus> getAllBusByObj() throws Exception;
+Bus findById(long id) throws Exception;
 }

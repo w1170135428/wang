@@ -1,6 +1,6 @@
 package register;
 import com.opensymphony.xwork2.ActionSupport;
-public class registerAction extends ActionSupport{
+public class RegisterAction extends ActionSupport{
 	private String username;
 	private String userTelephobe;
 	private String userID;

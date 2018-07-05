@@ -1,71 +1,72 @@
 package domain;
 
-import static java.lang.System.out;
+public class Bus {
+	private String st_city,ar_city,st_time,ar_time,st_station;
+	private double passenger_num,id,price;
 
-import java.text.MessageFormat;
-import java.util.ResourceBundle;
-
-public class bus {
-	private long id;
-	private String username, pass;
-	private double java, math, os;
-
-	public bus() {
+	public String getSt_city() {
+		return st_city;
 	}
 
-	public long getId() {
+	public void setSt_city(String st_city) {
+		this.st_city = st_city;
+	}
+
+	public String getAr_city() {
+		return ar_city;
+	}
+
+	public void setAr_city(String ar_city) {
+		this.ar_city = ar_city;
+	}
+
+	public String getSt_time() {
+		return st_time;
+	}
+
+	public void setSt_time(String st_time) {
+		this.st_time = st_time;
+	}
+
+	public String getSt_station() {
+		return st_station;
+	}
+
+	public void setSt_station(String st_station) {
+		this.st_station = st_station;
+	}
+
+	public double getPassenger_num() {
+		return passenger_num;
+	}
+
+	public void setPassenger_num(double passenger_num) {
+		this.passenger_num = passenger_num;
+	}
+
+	public double getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(double id) {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username.toString();
+	public double getPrice() {
+		return price;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getAr_time() {
+		return ar_time;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setAr_time(String ar_time) {
+		this.ar_time = ar_time;
 	}
 
-	public double getJava() {
-		return java;
-	}
-
-	public void setJava(double java) {
-		this.java = java;
-	}
-
-	public double getMath() {
-		return math;
-	}
-
-	public void setMath(double math) {
-		this.math = math;
-	}
-
-	public double getOs() {
-		return os;
-	}
-
-	public void setOs(double os) {
-		this.os = os;
-	}
-	@Override public String toString(){
-		ResourceBundle bundle
-		  =ResourceBundle.getBundle("demo.msg");
-		 String info=bundle.getString("stu.info");		  
-	     String res=MessageFormat
-				  .format(info,id,username);
-		return res;
-	}
 }
+

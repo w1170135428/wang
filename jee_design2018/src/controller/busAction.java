@@ -4,58 +4,58 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.busDAO;
-import dao.busDAOImp;
-import domain.bus;
+import dao.BusDAO;
+import dao.BusDAOImp;
+import domain.Bus;
 
-public class busAction extends ActionSupport {
+public class BusAction extends ActionSupport {
 	List<String[]> buss;
-  private List<bus> bussByObj;
+  private List<Bus> bussByObj;
 
 	public List<String[]> getbuss() {
 		return buss;
 	}
 
-	public List<bus> getbusByObj() {
+	public List<Bus> getbusByObj() {
     return bussByObj;
   }
-	bus bus;
+	Bus bus;
 
-  public bus getbus() {
+  public Bus getbus() {
     return bus;
   }
 
-  public void setbus(bus bus) {
+  public void setbus(Bus bus) {
     this.bus = bus;
   }
 
   public String execute() throws Exception {
-		busDAO dao = new busDAOImp();
+		BusDAO dao = new BusDAOImp();
 		buss = dao.getAllbuss();
 		getAllbussByObj();
 		return SUCCESS;
 	}
 	public void getAllbussByObj()throws Exception {
-	  busDAO dao=new busDAOImp();
+	  BusDAO dao=new BusDAOImp();
 	  bussByObj=dao.getAllbussByObj();	  
 	}
 	public String save() throws Exception{
-	  busDAO dao=new busDAOImp();
+	  BusDAO dao=new BusDAOImp();
 	  boolean isSuc=dao.save(bus);
 	  return isSuc?SUCCESS:ERROR;
 	}
 	public String edit() throws Exception{
-    busDAO dao=new busDAOImp();
+    BusDAO dao=new BusDAOImp();
     bus=dao.findById(bus.getId());
     return SUCCESS;
   }
 	public String update() throws Exception{
-    busDAO dao=new busDAOImp();
+    BusDAO dao=new BusDAOImp();
     boolean isSuc=dao.update(bus);
     return isSuc?SUCCESS:ERROR;
   }
 	public String del() throws Exception{
-    busDAO dao=new busDAOImp();
+    BusDAO dao=new BusDAOImp();
     boolean isSuc=dao.delById(bus.getId());
     return isSuc?SUCCESS:ERROR;
   }
