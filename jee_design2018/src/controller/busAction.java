@@ -9,54 +9,51 @@ import dao.BusDAOImp;
 import domain.Bus;
 
 public class BusAction extends ActionSupport {
-	List<String[]> buss;
-  private List<Bus> bussByObj;
+	private List<String[]> bus;
+	private List<Bus> BusByObj;
+	
 
-	public List<String[]> getbuss() {
-		return buss;
+	public List<String[]> getBus() {
+		return bus;
 	}
-
-	public List<Bus> getbusByObj() {
-    return bussByObj;
-  }
-	Bus bus;
-
-  public Bus getbus() {
-    return bus;
-  }
-
-  public void setbus(Bus bus) {
-    this.bus = bus;
-  }
-
-  public String execute() throws Exception {
+	public void setBus(List<String[]> bus) {
+		this.bus = bus;
+	}
+	public List<Bus> getBusByObj() {
+		return BusByObj;
+	}
+	public void setBusByObj(List<Bus> busByObj) {
+		BusByObj = busByObj;
+	}
+public String execute() throws Exception {
 		BusDAO dao = new BusDAOImp();
-		buss = dao.getAllbuss();
-		getAllbussByObj();
+		bus = dao.getAllBus();
+		getAllBusByObj();
 		return SUCCESS;
 	}
-	public void getAllbussByObj()throws Exception {
+	public void getAllBusByObj()throws Exception {
 	  BusDAO dao=new BusDAOImp();
-	  bussByObj=dao.getAllbussByObj();	  
+	  BusByObj=dao.getAllBusByObj();	  
 	}
 	public String save() throws Exception{
 	  BusDAO dao=new BusDAOImp();
-	  boolean isSuc=dao.save(bus);
-	  return isSuc?SUCCESS:ERROR;
+	  boolean isBus=dao.save((Bus) bus);
+	  return isBus?SUCCESS:ERROR;
 	}
 	public String edit() throws Exception{
     BusDAO dao=new BusDAOImp();
-    bus=dao.findById(bus.getId());
+   // for(Object object:bus);
+    bus=dao.findById((bus).getId());
     return SUCCESS;
   }
 	public String update() throws Exception{
     BusDAO dao=new BusDAOImp();
-    boolean isSuc=dao.update(bus);
-    return isSuc?SUCCESS:ERROR;
+    boolean isBus=dao.update(bus);
+    return isBus?SUCCESS:ERROR;
   }
 	public String del() throws Exception{
     BusDAO dao=new BusDAOImp();
-    boolean isSuc=dao.delById(bus.getId());
-    return isSuc?SUCCESS:ERROR;
+    boolean isBus=dao.delById(bus.getId());
+    return isBus?SUCCESS:ERROR;
   }
 }

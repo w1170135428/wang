@@ -2,7 +2,6 @@ package dao;
 
 import java.sql.*;
 import java.util.*;
-
 import domain.Bus;
 
 public class BusDAOImp implements BusDAO {
@@ -12,13 +11,13 @@ public class BusDAOImp implements BusDAO {
   String pass = "";
 
   @Override
-  public boolean check(String username) throws Exception {
+  public boolean check(Long id) throws Exception {
     Class.forName(driver);
-    String sql = "select * from stu where username =?";
+    String sql = "select * from bus where id =?";
     boolean isHave = false;
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
-      pstmt.setString(1, username);
+      pstmt.setLong(1, id);
       try (ResultSet rs = pstmt.executeQuery();) {
         isHave = rs.next();
       }
@@ -27,9 +26,9 @@ public class BusDAOImp implements BusDAO {
   }
 
   /**
-   * 得到所有学生 select * from stu last,getRow当前时第几行,beforeFirst List<String[]>
+   * 得到所有车次 select * from bus last,getRow当前时第几行,beforeFirst List<String[]>
    */
-  // List<Stu>
+  // List<Bus>
   @Override
   public List<String[]> getAllBus() throws Exception {
     List<String[]> bus = new ArrayList<>();
@@ -59,7 +58,7 @@ public class BusDAOImp implements BusDAO {
   public List<Bus> getAllBusByObj() throws Exception {
     List<Bus> bus = new ArrayList<>();
     Class.forName(driver);
-    String sql = "select * from stu";
+    String sql = "select * from bus";
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
       try (ResultSet rs = pstmt.executeQuery();) {
@@ -73,13 +72,13 @@ public class BusDAOImp implements BusDAO {
     }
   }
    @Override
-  public Bus findById(long ar_city) throws Exception {
+  public Bus findByAr_city(String ar_city) throws Exception {
     Bus bus=new Bus();
     Class.forName(driver);
     String sql = "select * from bus where ar_city=?";
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
-      pstmt.setLong(1,ar_city);
+      pstmt.setString(1,ar_city);
       try (ResultSet rs = pstmt.executeQuery();) {
         rs.next();
         bus.setId(rs.getLong("id"));
@@ -88,58 +87,91 @@ public class BusDAOImp implements BusDAO {
         bus.setSt_time(rs.getString("st_time"));
         bus.setAr_time(rs.getString("ar_time"));
         bus.setPrice(rs.getDouble("price"));
-        bus.setPassenger_num(rs.getDouble("passenger_num"));
+        bus.setPassenger_num(rs.getLong("passenger_num"));
         bus.setSt_station(rs.getString("st_station"));
       }
     }
     return bus;
   }
 
+   @Override
+   public Bus findById(Long id) throws Exception {
+     Bus bus=new Bus();
+     Class.forName(driver);
+     String sql = "select * from bus where id=?";
+     try (Connection con = DriverManager.getConnection(url, user, pass);
+         PreparedStatement pstmt = con.prepareStatement(sql);) {
+       pstmt.setLong(1,id);
+       try (ResultSet rs = pstmt.executeQuery();) {
+         rs.next();
+         bus.setId(rs.getLong("id"));
+         bus.setSt_city(rs.getString("st_city"));
+         bus.setAr_city(rs.getString("ar_city"));
+         bus.setSt_time(rs.getString("st_time"));
+         bus.setAr_time(rs.getString("ar_time"));
+         bus.setPrice(rs.getDouble("price"));
+         bus.setPassenger_num(rs.getLong("passenger_num"));
+         bus.setSt_station(rs.getString("st_station"));
+       }
+     }
+     return bus;
+   }
+
+   
   @Override
-  public boolean save(Bus stu) throws Exception {
-    boolean isSuc=false;
+  public boolean save(Bus bus) throws Exception {
+    boolean isBus=false;
     Class.forName(driver);
-    String sql = "insert into stu(username,java,math,os) values(?,?,?,?)";
+    String sql = "insert into bus(id,st_city,ar_city,st_time,ar_time,price,passenger_num,st_station) values(?,?,?,?,?,?,?,?)";
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
-      pstmt.setString(1,stu.getUsername());
-      pstmt.setDouble(2,stu.getJava());
-      pstmt.setDouble(3,stu.getMath());
-      pstmt.setDouble(4, stu.getOs());      
+      pstmt.setDouble(1,bus.getId());
+      pstmt.setString(2,bus.getSt_city());
+      pstmt.setString(2,bus.getAr_city());
+      pstmt.setString(2,bus.getSt_time());
+      pstmt.setString(2,bus.getAr_time());
+      pstmt.setDouble(3,bus.getPrice());
+      pstmt.setDouble(4,bus.getPassenger_num());    
+      pstmt.setString(2,bus.getSt_station());
       int row=pstmt.executeUpdate();
-      isSuc=row>0;
+      isBus=row>0;
     }
-    return isSuc;
+    return isBus;
   }
   @Override
-  public boolean update(Bus stu) throws Exception {
-    boolean isSuc=false;
+  public boolean update(Bus bus) throws Exception {
+    boolean isBus=false;
     Class.forName(driver);
-    String sql = "update stu set username=?,java=?,math=?,os=? where id=?";
+    String sql = "update bus set id=?,st_city=?,ar_city=?,st_time=? ar_time=?,price=?,passenger_num=?,st_station=?,where id=?";
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
-      pstmt.setString(1,stu.getUsername());
-      pstmt.setDouble(2,stu.getJava());
-      pstmt.setDouble(3,stu.getMath());
-      pstmt.setDouble(4, stu.getOs()); 
-      pstmt.setLong(5, stu.getId());
+      pstmt.setDouble(1,bus.getId());
+      pstmt.setString(1,bus.getSt_city());
+      pstmt.setString(1,bus.getAr_city());
+      pstmt.setString(1,bus.getSt_time());
+      pstmt.setString(1,bus.getSt_time());
+      pstmt.setDouble(1,bus.getPrice());
+      pstmt.setDouble(1,bus.getPassenger_num());
+      pstmt.setString(1,bus.getSt_station());
       int row=pstmt.executeUpdate();
-      isSuc=row>0;
+      isBus=row>0;
     }
-    return isSuc;
+    return isBus;
   }
 
   @Override
-  public boolean delById(long id) throws Exception {
-    boolean isSuc=false;
+  public boolean delById(Long id) throws Exception {
+    boolean isBus=false;
     Class.forName(driver);
     String sql = "delete from stu where id=?";
     try (Connection con = DriverManager.getConnection(url, user, pass);
         PreparedStatement pstmt = con.prepareStatement(sql);) {
-      pstmt.setLong(1,id);
+      pstmt.setDouble(1,id);
       int row=pstmt.executeUpdate();
-      isSuc=row>0;
+      isBus=row>0;
     }
-    return isSuc;
+    return isBus;
   }
+
+
 }

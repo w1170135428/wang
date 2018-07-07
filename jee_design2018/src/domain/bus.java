@@ -2,7 +2,8 @@ package domain;
 
 public class Bus {
 	private String st_city,ar_city,st_time,ar_time,st_station;
-	private double passenger_num,id,price;
+	private Long passenger_num,id;
+	private Double price;
 
 	public String getSt_city() {
 		return st_city;
@@ -40,7 +41,7 @@ public class Bus {
 		return passenger_num;
 	}
 
-	public void setPassenger_num(double passenger_num) {
+	public void setPassenger_num(long passenger_num) {
 		this.passenger_num = passenger_num;
 	}
 
@@ -48,7 +49,7 @@ public class Bus {
 		return id;
 	}
 
-	public void setId(double id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
