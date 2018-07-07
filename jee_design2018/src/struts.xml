@@ -5,9 +5,25 @@
 <struts>
 	<constant name="struts.devMode" value="true" />	
 	<package name="default" extends="struts-default">
-	<action name="register" class="regist.registAction">
+	
+	<action name="register" class="register.RegisterAction">
 		<result name="input">/register.jsp</result>
 		<result name="success">/login.jsp</result>
 	</action>
+	
+	<action name="LoginAction" class="controller.LoginAction">
+			<result name="suc_ad">/login_suc_ad.jsp</result>
+			<result name="suc" type="redirect">/login_suc.jsp</result>
+			<result name="fail">/login_fail.jsp</result>
+			<result name="input">/login.jsp</result>
+	</action>
+	
+	<action name="BusAction" class="controller.BusAction">
+			<result name="SUCCESS">/bus_list.jsp</result>
+			<result name="input">/login_suc.jsp</result>
+	</action>
+	
+	
+	
 </package>
 </struts>

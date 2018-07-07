@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 我的订单
 <table style="border:1px solid green"><tr><td>username<td>ID<td>action
-    <s:iterator value="username" var="row2">
+    <s:iterator value="order" var="row2">
     <tr>
       <td><s:property value="#row2[0]"/>
       <td><s:property value="#row2[1]"/>

@@ -1,39 +1,43 @@
 package controller;
 
 import java.util.List;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import dao.BusDAO;
 import dao.BusDAOImp;
 import domain.Bus;
 
 public class BusAction extends ActionSupport {
-	private List<String[]> bus;
-	private List<Bus> BusByObj;
-	
+	private List<String[]> buss;
+	private List<Bus> bussByObj;
+	Bus bus;
 
-	public List<String[]> getBus() {
+public List<String[]> getBuss() {
+		return buss;
+	}
+	public void setBuss(List<String[]> buss) {
+		this.buss = buss;
+	}
+	public List<Bus> getBussByObj() {
+		return bussByObj;
+	}
+	public void setBussByObj(List<Bus> bussByObj) {
+		this.bussByObj = bussByObj;
+	}
+	public Bus getBus() {
 		return bus;
 	}
-	public void setBus(List<String[]> bus) {
+	public void setBus(Bus bus) {
 		this.bus = bus;
 	}
-	public List<Bus> getBusByObj() {
-		return BusByObj;
-	}
-	public void setBusByObj(List<Bus> busByObj) {
-		BusByObj = busByObj;
-	}
-public String execute() throws Exception {
+@Override public String execute() throws Exception {
 		BusDAO dao = new BusDAOImp();
-		bus = dao.getAllBus();
+		bus = (Bus) dao.getAllBus();
 		getAllBusByObj();
 		return SUCCESS;
 	}
 	public void getAllBusByObj()throws Exception {
 	  BusDAO dao=new BusDAOImp();
-	  BusByObj=dao.getAllBusByObj();	  
+	  bussByObj=dao.getAllBusByObj();	  
 	}
 	public String save() throws Exception{
 	  BusDAO dao=new BusDAOImp();
@@ -42,8 +46,7 @@ public String execute() throws Exception {
 	}
 	public String edit() throws Exception{
     BusDAO dao=new BusDAOImp();
-   // for(Object object:bus);
-    bus=dao.findById((bus).getId());
+    bus=dao.findById(bus.getId());
     return SUCCESS;
   }
 	public String update() throws Exception{

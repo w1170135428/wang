@@ -35,6 +35,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             displayFormat="%{getText('format.date.input')}"
             changeMonth="true" changeYear="true" />
 <br>
-<s:a href=".jsp">查询我的订单</s:a>
+<s:a href="http://localhost:8080/jee_design/WebRoot/order_list.jsp">查询我的订单</s:a>
   </body>
 </html>

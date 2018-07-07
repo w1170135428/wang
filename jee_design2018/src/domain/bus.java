@@ -45,7 +45,7 @@ public class Bus {
 		this.passenger_num = passenger_num;
 	}
 
-	public double getId() {
+	public Long getId() {
 		return id;
 	}
 

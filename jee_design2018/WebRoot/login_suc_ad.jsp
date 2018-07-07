@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 管理员，欢迎登录<br>
 请选择您要进行的操作：<br>
-<s:a href="item.jsp">管理车次信息</s:a>
-<s:a href=".jsp">购票统计</s:a>
-<s:a href=".jsp">浏览旅客信息</s:a>
-  </body>
+<s:a href="http://localhost:8080/jee_design/WebRoot/bus_list.jsp">管理车次信息</s:a><br>
+<s:a href="http://localhost:8080/jee_design/WebRoot/order_list.jsp">购票统计</s:a><br>
+<s:a href="http://localhost:8080/jee_design/WebRoot/user_list.jsp">浏览旅客信息</s:a><br>
+ </body>
 </html>

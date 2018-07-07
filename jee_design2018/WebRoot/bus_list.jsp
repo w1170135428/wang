@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </s:url>
       <a href="${editUrl}">edit</a>
       
-      <s:url var="delUrl" action="stu_del">
+      <s:url var="delUrl" action="bus_del">
         <s:param name="bus.id" value="#row2[0]"/>
       </s:url>
       <a href="${delUrl}" onClick="return readyDel(<s:property value='#row2[0]'/>);">del</a>

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <s:form name="edit" action="bus_update" method="post">
+   <s:form name="" action="bus_update" method="post">
    <s:hidden name="bus.id"/>  
    <s:textfield name="bus.id" label="id"/>
    <s:textfield name="bus.start" label="start"/>

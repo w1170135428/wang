@@ -1,5 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>欢迎使用汽车购票系统</title>
+    <title>My JSP 'user_list.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,9 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  用户名:<input name="username" type="text"><br>
-  密     码:<input name="password" type="password"><br>
-  <input type="submit" value="登录">
- <s:a href="http://localhost:8080/jee_design/WebRoot/register.jsp">注册</s:a>
+    This is my JSP page. <br>
   </body>
 </html>
