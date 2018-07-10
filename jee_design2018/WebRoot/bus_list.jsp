@@ -24,36 +24,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <a href="bus_new.jsp">add bus</a>
-  <table style="border:1px solid green"><tr><td>id<td>start<td>arrive<td>st_time<td>ar_time<td>price<td>passenger_num<td>st_station<td>action
-    <s:iterator value="bus" var="row2">
+  <a href="bus_new.jsp">添加车次</a>
+   <s:property value="#row2[0]"/>
+  <table style="border:1px solid green"><tr><td>车次<td>出发城市<td>到达城市<td>出发时间<td>到达时间<td>价格<td>额定乘客<td>出发站<td>action
+    <s:iterator value="bussByObj" var="bus">
     <tr>
-      <td><s:property value="#row2[0]"/>
-      <td><s:property value="#row2[1]"/>
-      <td><s:property value="#row2[2]"/>
-      <td><s:property value="#row2[3]"/>
-      <td><s:property value="#row2[4]"/>
-      <td><s:property value="#row2[5]"/>
-      <td><s:property value="#row2[6]"/>
-      <td><s:property value="#row2[7]"/>
+      <td><s:property value="#bus.id"/>
+      <td><s:property value="#bus.st_city"/>
+      <td><s:property value="#bus.ar_city"/>
+      <td><s:property value="#bus.st_time"/>
+      <td><s:property value="#bus.ar_time"/>
+      <td><s:property value="#bus.price"/>
+      <td><s:property value="#bus.passenger_num"/>
+      <td><s:property value="#bus.st_station"/>
+       <br>
       <td>
       <s:url var="editUrl" action="bus_edit">
-         <s:param name="bus.id" value="#row2[0]"/>
+         <s:param name="bus.id" value="#bus.id"/>
       </s:url>
       <a href="${editUrl}">edit</a>
       
       <s:url var="delUrl" action="bus_del">
-        <s:param name="bus.id" value="#row2[0]"/>
+        <s:param name="bus.id" value="#bus.id"/>
       </s:url>
       <a href="${delUrl}" onClick="return readyDel(<s:property value='#row2[0]'/>);">del</a>
       
     </s:iterator>
     </table>
-    用对象bus来得到所有车次
-    <s:iterator value="stusByObj" var="stu">
-       id:<s:property value="#bus.id"/>
-       <br>
-    </s:iterator>
     <script>
       function readyDel(id){
         return confirm("是否真的删除"+id+"车次？");

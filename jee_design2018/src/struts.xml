@@ -6,9 +6,14 @@
 	<constant name="struts.devMode" value="true" />	
 	<package name="default" extends="struts-default">
 	
-	<action name="register" class="register.RegisterAction">
+	<action name="RegisterAction" class="controller.RegisterAction">
+	    <result>/register_suc.jsp</result>
 		<result name="input">/register.jsp</result>
-		<result name="success">/login.jsp</result>
+	</action>
+	
+	<action name="register" class="controller.RegisterAction">
+		<result name="input">/register.jsp</result>
+		<result>/login.jsp</result>
 	</action>
 	
 	<action name="LoginAction" class="controller.LoginAction">
@@ -18,12 +23,45 @@
 			<result name="input">/login.jsp</result>
 	</action>
 	
+	<action name="BusAction.update" class="controller.BusAction" method="update">
+			<result>/bus_update_suc.jsp</result>
+			<result name="ERROR">/bus_update_error.jsp</result>
+			<result name="input">/bus_update_error.jsp</result>
+	</action>
+	
+	<action name="findByPassenger" class="controller.BusAction" method="findByPassenger">
+			<result>/bus_list.jsp</result>
+			<result name="input">/bus_list.jsp</result>
+	</action>
+	
 	<action name="BusAction" class="controller.BusAction">
-			<result name="SUCCESS">/bus_list.jsp</result>
-			<result name="input">/login_suc.jsp</result>
+			<result>/bus_list.jsp</result>
+			<result name="input">/bus_list.jsp</result>
 	</action>
 	
 	
-	
+	<action name="CityAction" class="controller.CityAction">
+			<result>/city_list.jsp</result>
+			<result name="input">/login_suc.jsp</result>
+	</action>
+	<action name="OrderAction" class="controller.OrderAction">
+			<result>/order_list.jsp</result>
+			<result name="input">/login_suc.jsp</result>
+	</action>
+	<action name="UserAction" class="controller.UserAction">
+			<result>/user_list.jsp</result>
+			<result name="input">/login.jsp</result>
+	</action>
+	<action name="user_save" class="controller.UserAction" method="save">
+			<result name="SUCCESS">/login.jsp</result>
+			<result name="ERROR">/resister.jsp</result>
+			<result name="input">/register.jsp</result>
+	</action>
+	<action name="user_update" class="controller.UserAction" method="update">
+			<result name="SUCCESS">/login.jsp</result>
+			<result name="ERROR">/resister.jsp</result>
+			<result name="input">/register.jsp</result>
+	</action>
 </package>
+	<include file="jdbc.xml" />
 </struts>

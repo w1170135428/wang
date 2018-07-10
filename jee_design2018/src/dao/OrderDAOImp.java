@@ -29,24 +29,6 @@ return isHave;
  * 得到所有订单 select * from order last,getRow当前时第几行,beforeFirst List<String[]>
  */
 // List<order>
-@Override
-public List<String[]> getAllOrder() throws Exception {
-  List<String[]> order = new ArrayList<>();
-  Class.forName(driver);
-  String sql = "select * from order";
-  try (Connection con = DriverManager.getConnection(url, user, pass);
-      PreparedStatement pstmt = con.prepareStatement(sql);) {
-    try (ResultSet rs = pstmt.executeQuery();) {
-      while (rs.next()) {// 保存每行的数据
-        String[] row = new String[5];
-        row[0] = rs.getString("username");
-        row[1] = rs.getString("id");
-        order.add(row);
-      }
-    }
-  }
-  return order;
-}
 
 @Override
 public List<Order> getAllOrderByObj() throws Exception {

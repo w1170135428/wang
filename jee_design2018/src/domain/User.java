@@ -1,7 +1,8 @@
 package domain;
 
 public class User {
-	private String username,userid,usertelephone,password;
+	private String username,usertelephone,password;
+	private String userid;
 
 	public String getUsername() {
 		return username;

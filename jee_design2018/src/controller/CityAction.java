@@ -32,11 +32,11 @@ public class CityAction extends ActionSupport {
 	}
 	public String execute() throws Exception {
 		CityDAO dao = new CityDAOImp();
-		city = (City) dao.getAllCitys();
-		getAllCityByObj();
+		citysByObj = dao.getAllCitysByObj();
+	//	getAllCityByObj();
 		return SUCCESS;
 	}
-    public void getAllCityByObj()throws Exception {
+    public void getAllCitysByObj()throws Exception {
 	  CityDAO dao=new CityDAOImp();
 	  citysByObj=dao.getAllCitysByObj();	  
 	}

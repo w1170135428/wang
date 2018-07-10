@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>我的订单</title>
+    <title>订单</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,13 +24,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-我的订单
-<table style="border:1px solid green"><tr><td>username<td>ID<td>action
-    <s:iterator value="order" var="row2">
+订单
+<table style="border:1px solid green"><tr><td>旅客姓名<td>车次
+    <s:iterator value="ordersByObj" var="order">
     <tr>
-      <td><s:property value="#row2[0]"/>
-      <td><s:property value="#row2[1]"/>
+      <td><s:property value="#order.username"/>
+      <td><s:property value="#order.id"/>
       <td>
    </s:iterator>
+   </table>
   </body>
 </html>

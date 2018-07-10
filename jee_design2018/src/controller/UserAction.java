@@ -28,10 +28,10 @@ public class UserAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	@Override public String execute() throws Exception {
+@Override public String execute() throws Exception {
 		UserDAO dao = new UserDAOImp();
-		user = (User) dao.getAllUsers();
-		getAllUserByObj();
+		usersByObj = dao.getAllUsersByObj();
+		//getAllUserByObj();
 		return SUCCESS;
 	}
 	public void getAllUserByObj()throws Exception {

@@ -31,10 +31,10 @@ public class OrderAction extends ActionSupport {
 		this.order = order;
 	}
 	
-	public String execute() throws Exception {
+@Override public String execute() throws Exception {
 		OrderDAO dao = new OrderDAOImp();
-		order = (Order) dao.getAllOrder();
-		getAllOrderByObj();
+		ordersByObj =  dao.getAllOrderByObj();
+	//	getAllOrderByObj();
 		return SUCCESS;
 	}
 	public void getAllOrderByObj()throws Exception {

@@ -6,28 +6,35 @@
 	
 	<validators>
 	
-	<field name="userID">
-  	<field-validator type="requiredstring">
-  	<param name="userID"></param>
-  	<message>身份证号码为空</message>
-  	</field-validator>
-  	</field>
-	
-  <field name="username">
+  <field name="user.username">
   	<field-validator type="requiredstring">
   	<param name="username"></param>
   	<message>用户名为空</message>
   	</field-validator>
   	</field>
   	
-  	<field name="pass">
+  	<field name="user.password">
   	<field-validator type="requiredstring">
   	<param name="pass"></param>
   	<message>密码为空</message>
   	</field-validator>
   	</field>
   	
-  	<field name="userID">
+  	<field name="user.userID">
+  	<field-validator type="requiredstring">
+  	<param name="userID"></param>
+  	<message>身份证号码为空</message>
+  	</field-validator>
+  	</field>
+  	
+  	<field name="user.usertelephone">
+  	<field-validator type="requiredstring">
+  	<param name="userTelephone"></param>
+  	<message>手机号码为空</message>
+  	</field-validator>
+  	</field>
+  	
+  	<field name="user.userid">
   	<field-validator type="stringlength">
   	<param name="maxLength">18</param>
   	<param name="minLength">18</param>
@@ -35,7 +42,7 @@
   	</field-validator>
   	</field>
 	
-	<field name="userTelenumber">
+	<field name="user.usertelephone">
   	<field-validator type="stringlength">
   	<param name="maxLength">11</param>
   	<param name="minLength">11</param>

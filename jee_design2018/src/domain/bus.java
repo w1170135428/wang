@@ -37,7 +37,7 @@ public class Bus {
 		this.st_station = st_station;
 	}
 
-	public double getPassenger_num() {
+	public Long getPassenger_num() {
 		return passenger_num;
 	}
 
@@ -69,5 +69,12 @@ public class Bus {
 		this.ar_time = ar_time;
 	}
 
+	@Override
+	public String toString() {
+		
+		return "price:"+price;
+	}
+    
+	
 }
 

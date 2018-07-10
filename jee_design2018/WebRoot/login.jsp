@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
+
     <title>欢迎使用汽车购票系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -22,11 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
+ 
   <body>
-  用户名:<input name="username" type="text"><br>
-  密     码:<input name="password" type="password"><br>
+  欢迎使用汽车购票系统<br>
+   <form action="LoginAction" method ="post">
+    <s:actionerror/>
+    <s:fielderror/>
+  账号:<input name="username" type="text">
+  <br>
+  密码:<input name="password" type="password">
+  <br>
   <input type="submit" value="登录">
- <s:a href="http://localhost:8080/jee_design/WebRoot/register.jsp">注册</s:a>
-  </body>
+ </form>
+<a href="register.jsp">注册</a><br>
+ </body>
 </html>

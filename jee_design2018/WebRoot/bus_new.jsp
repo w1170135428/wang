@@ -1,5 +1,7 @@
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,19 +22,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+    <s:head/>
+    <sj:head/>
 
   </head>
   
   <body>
-   <s:form name="edit" action="stu_save" method="post">  
-   <s:textfield name="bus.id" label="id"/>
-   <s:textfield name="bus.start" label="start"/>
-   <s:textfield name="bus.arrive" label="arrive"/>
-   <s:textfield name="bus.st_time" label="st_time"/>
-   <s:textfield name="bus.ar_time" label="ar_time"/>
-   <s:textfield name="bus.price" label="price"/>
-   <s:textfield name="bus.passenger_num" label="passenger_num"/>
-   <s:textfield name="bus.st_station" label="st_station"/>
+   <s:form name="new" action="bus_save" method="post">  
+   <s:textfield name="bus.id" label="车次"/>
+   <s:textfield name="bus.st_city" label="出发城市"/>
+   <s:textfield name="bus.ar_city" label="到达城市"/>
+   <sj:datepicker id="today" name="bus.st_time" label="出发时间"
+            displayFormat="%{getText('format.date.input')}"
+            changeMonth="true" changeYear="true" />
+   <sj:datepicker id="tomorrow" name="bus.ar_time" label="到达时间"
+            displayFormat="%{getText('format.date.input')}"
+            changeMonth="true" changeYear="true" />
+   <s:textfield name="bus.price" label="价格"/>
+   <s:textfield name="bus.passenger_num" label="额定乘客"/>
+   <s:textfield name="bus.st_station" label="出发站"/>
    <s:submit value="add"/>
    </s:form>
   </body>

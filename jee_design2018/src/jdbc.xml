@@ -4,13 +4,15 @@
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>   
   <package name="jdbc" extends="struts-default">    
-     <action name="stu_list" class="controller.StuAction">
-        <result>/stu_list.jsp</result>
+     <action name="bus_list" class="controller.BusAction">
+        <result>/bus_list.jsp</result>
      </action>
       
-     <action name="bus_edit" class="controller.StuAction" method="edit">
+     <action name="bus_edit" class="controller.BusAction" method="edit">
         <result>/bus_edit.jsp</result>
+        <result name="update">bus_edit_suc.jsp</result>
      </action> 
+          
     <!--  <action name="stu_save" class="controller.StuAction" method="save">
         <result type="redirect">/stu_save_suc.jsp</result>
         <result name="error" type="redirect">/stu_save_error.jsp</result>
@@ -23,9 +25,10 @@
         <result type="redirect">/stu_del_suc.jsp</result>
         <result name="error" type="redirect">/stu_del_error.jsp</result>
      </action>  -->    
-     <action name="bus_*" class="controller.StuAction" method="{1}">
-        <result type="redirect">/stu_{1}_suc.jsp</result>
-        <result name="error" type="redirect">/stu_{1}_error.jsp</result>
+     <action name="bus_*" class="controller.BusAction" method="{1}">
+        <result type="redirect">/bus_{1}_suc.jsp</result>
+        <result name="error" type="redirect">/bus_{1}_error.jsp</result>
+        <result name="update">bus_edit_suc.jsp</result>
         <allowed-methods>update,del</allowed-methods>
      </action>  
   </package> 

@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'user_list.jsp' starting page</title>
+    <title>浏览旅客信息</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +25,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+  旅客信息
+  <table style="border:1px solid green"><tr><td>旅客姓名<td>身份证号<td>手机号
+    <s:iterator value="usersByObj" var="users">
+    <tr>
+      <td><s:property value="#users.username"/>
+      <td><s:property value="#users.userid"/>
+      <td><s:property value="#users.usertelephone"/>
+      <td>
+   </s:iterator>
+  
+  <br>
   </body>
 </html>
