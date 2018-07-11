@@ -34,7 +34,6 @@ public class OrderAction extends ActionSupport {
 @Override public String execute() throws Exception {
 		OrderDAO dao = new OrderDAOImp();
 		ordersByObj =  dao.getAllOrderByObj();
-	//	getAllOrderByObj();
 		return SUCCESS;
 	}
 	public void getAllOrderByObj()throws Exception {

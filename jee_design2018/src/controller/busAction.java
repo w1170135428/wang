@@ -40,7 +40,6 @@ public class BusAction extends ActionSupport {
 	public String execute() throws Exception {
 		BusDAO dao = new BusDAOImp();
 		bussByObj = dao.getAllBusByObj();
-		// getAllBusByObj();
 		return SUCCESS;
 	}
 

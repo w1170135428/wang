@@ -48,7 +48,4 @@ public class UserAction extends ActionSupport {
 	    boolean isUser=dao.update(user);
 	    return isUser?SUCCESS:ERROR;
 	  }
-	
-	
-
 }
